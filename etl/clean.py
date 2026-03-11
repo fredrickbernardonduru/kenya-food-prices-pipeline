@@ -1,17 +1,21 @@
 import pandas as pd
 
 def clean_data(df):
-    """
-    Cleans the food price dataframe.
-    """
-    # 1. Strip whitespace from column names and make them lowercase
-    df.columns = [c.strip().lower().replace(' ', '_') for c in df.columns]
 
-    # 2. Example: Remove rows with missing prices (adjust column name as needed)
-    # df = df.dropna(subset=['price'])
+    # Convert date column
+    df["date"] = pd.to_datetime(df["date"])
 
-    # 3. Drop duplicates
-    df = df.drop_duplicates()
+    # Remove rows missing geographic data
+    df = df.dropna(subset=["admin1", "admin2", "latitude", "longitude"])
 
-    print("Cleaning complete: Column names standardized and duplicates removed.")
+    # Standardize text columns
+    df["commodity"] = df["commodity"].str.strip().str.title()
+    df["market"] = df["market"].str.strip().str.title()
+    df["admin1"] = df["admin1"].str.strip().str.title()
+    df["admin2"] = df["admin2"].str.strip().str.title()
+
+    # Create derived columns
+    df["year"] = df["date"].dt.year
+    df["month"] = df["date"].dt.month
+
     return df

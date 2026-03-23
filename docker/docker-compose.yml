@@ -1,0 +1,34 @@
+version: '3.8'
+
+services:
+  # 1. The Database Service
+  postgres:
+    image: postgres:15
+    container_name: kenya_db
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB}
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  # 2. The Airflow Service (Using Astronomer's base image for simplicity)
+  airflow:
+    build: 
+      context: ..
+      dockerfile: docker/Dockerfile.airflow
+    container_name: kenya_airflow
+    depends_on:
+      - postgres
+    environment:
+      - LOAD_EX=n
+      - EXECUTOR=SequentialExecutor
+    volumes:
+      - ../airflow/dags:/usr/local/airflow/dags
+      - ../etl:/usr/local/airflow/etl
+      - ../data:/usr/local/airflow/data
+
+volumes:
+  postgres_data:

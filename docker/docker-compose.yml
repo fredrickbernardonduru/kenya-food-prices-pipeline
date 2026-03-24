@@ -23,7 +23,7 @@ services:
     environment:
       - LOAD_EX=n
       - EXECUTOR=SequentialExecutor
-      # 👈 IMPORTANT: Tell Airflow how to find the database container
+      - PYTHONPATH=/opt/airflow
       - AIRFLOW__DATABASE__SQL_ALCHEMY_CONN=postgresql+psycopg2://${POSTGRES_USER}:${POSTGRES_PASSWORD}@postgres:5432/${POSTGRES_DB}
     ports:
       - "8080:8080"

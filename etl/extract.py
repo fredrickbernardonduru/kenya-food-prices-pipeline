@@ -1,9 +1,9 @@
 import pandas as pd
 
-# Use a 'raw' string (r"...") to handle the backslashes in Windows paths
-FILE_PATH = r"C:\Users\Fredrich Bernard\Desktop\Training\Data Engineering\Everything Data\DataCamp\Project\kenya-food-prices-pipeline\data\sample_food_prices.csv"
+# This is the path INSIDE the Docker container as mapped in your docker-compose volumes
+FILE_PATH = "/opt/airflow/data/sample_food_prices.csv"
 
 def extract_data(path=FILE_PATH):
-    # pandas can read local files just as easily as URLs
+    # pandas will now find the file in the shared Docker volume
     df = pd.read_csv(path)
     return df

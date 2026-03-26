@@ -1,6 +1,6 @@
-from extract import extract_data
-from clean import clean_data
-from load import load_data
+from etl.extract import extract_data
+from etl.clean import clean_data
+from etl.load import load_data
 
 def run_pipeline():
 

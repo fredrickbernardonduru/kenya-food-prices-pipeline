@@ -1,32 +1,32 @@
 import pandas as pd
 from sqlalchemy import create_engine
+import os
 
-# 1. Database Connection (Updated with your credentials)
-# Format: "postgresql://username:password@localhost:port/database"
-DB_URL = "postgresql://postgres:Huxtler41268690@localhost:5432/kenya_food_prices"
+# 1. Database Configuration
+# We use 'postgres' because that is the SERVICE name in your docker-compose
+DB_HOST = "postgres" 
+DB_PORT = "5432"
+
+# These should match your .env file or the defaults you used
+DB_USER = "postgres"              
+DB_PASS = "Huxtler41268690"       
+DB_NAME = "kenya_food_prices"     
+
+# Final Connection String
+DB_URL = f"postgresql+psycopg2://{DB_USER}:{DB_PASS}@{DB_HOST}:{DB_PORT}/{DB_NAME}"
 engine = create_engine(DB_URL)
 
-# 2. Local File Path (Using the 'r' prefix for Windows paths)
-CSV_PATH = r"C:\Users\Fredrich Bernard\Desktop\Training\Data Engineering\Everything Data\DataCamp\Project\kenya-food-prices-pipeline\data\sample_food_prices.csv"
-
-def extract_data(path=CSV_PATH):
-    print("Reading CSV...")
-    return pd.read_csv(path)
-
 def load_data(df, table_name):
-    print(f"Loading data into table: {table_name}...")
-    df.to_sql(
-        table_name,
-        engine,
-        if_exists="replace",  # Use "replace" first to create the table structure
-        index=False
-    )
-    print("Upload complete!")
-
-# 3. Execution Block
-if __name__ == "__main__":
+    print(f"🚀 Connecting to {DB_HOST} to load table: {table_name}...")
     try:
-        data = extract_data()
-        load_data(data, "market_prices")
+        with engine.begin() as conn:
+            df.to_sql(
+                name=table_name,
+                con=conn,
+                if_exists='replace',
+                index=False
+            )
+        print(f"✅ Success! Data loaded into '{table_name}'.")
     except Exception as e:
-        print(f"An error occurred: {e}")
+        print(f"❌ Connection Failed: {e}")
+        raise

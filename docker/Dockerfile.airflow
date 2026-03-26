@@ -1,13 +1,22 @@
 FROM apache/airflow:2.9.0
 
-USER root
-RUN apt-get update && apt-get install -y build-essential && apt-get clean
+# We skip the 'USER root' and 'apt-get' sections to avoid the 
+# network timeout errors you encountered. 
 
 USER airflow
 
-# This tells Docker to look at the ROOT of the project context for the file
+# 1. Install core ETL libraries first.
+# Using psycopg2-binary means we don't need the system-level 'libpq-dev' or 'gcc'.
+RUN pip install --no-cache-dir \
+    pandas \
+    sqlalchemy>=2.0.0 \
+    psycopg2-binary
+
+# 2. Copy the requirements file from your project root.
+# Ensure your docker-compose.yml has '.' as the build context.
 COPY requirements.txt /opt/airflow/requirements.txt
 
+# 3. Install the rest of your dependencies.
 RUN pip install --no-cache-dir -r /opt/airflow/requirements.txt
 
 WORKDIR /opt/airflow

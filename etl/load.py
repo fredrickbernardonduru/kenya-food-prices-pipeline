@@ -2,48 +2,48 @@ import pandas as pd
 from sqlalchemy import create_engine
 import os
 
+# 1. Database Configuration
+# Using the service name 'postgres' as defined in your docker-compose
+DB_HOST = "postgres" 
+DB_PORT = "5432"
+DB_USER = "postgres"              
+DB_PASS = "Huxtler41268690"       
+DB_NAME = "kenya_food_prices"     
 
-# -------------------------
-# DB CONFIG (use env vars ideally)
-# -------------------------
-DB_HOST = os.getenv("POSTGRES_HOST", "postgres")
-DB_PORT = os.getenv("POSTGRES_PORT", "5432")
-DB_USER = os.getenv("POSTGRES_USER", "postgres")
-DB_PASS = os.getenv("POSTGRES_PASSWORD", "Huxtler41268690")
-DB_NAME = os.getenv("POSTGRES_DB", "kenya_food_prices")
-
-
+# 2. Create the Connection URI
 DB_URL = f"postgresql+psycopg2://{DB_USER}:{DB_PASS}@{DB_HOST}:{DB_PORT}/{DB_NAME}"
 
+# 3. Create the SQLAlchemy 2.0 Engine
 engine = create_engine(DB_URL)
 
-
-# -------------------------
-# LOAD FUNCTION
-# -------------------------
-def load_data(df: pd.DataFrame, table_name: str):
-    print(f"🚀 Loading data into table: {table_name}...")
-
+def load_data(df, table_name):
+    """
+    Loads a Pandas DataFrame into the Postgres database.
+    Using engine.begin() ensures a secure transaction in SQLAlchemy 2.0.
+    """
+    print(f"🚀 Preparing to load {len(df)} rows into table: {table_name}...")
+    
     try:
-        df.to_sql(
-            name=table_name,
-            con=engine,          # IMPORTANT: pass engine directly
-            if_exists="replace", # or "append"
-            index=False,
-            method="multi",      # faster inserts
-            chunksize=1000
-        )
-
-        print(f"✅ Data successfully loaded into '{table_name}'")
-
+        # 'with engine.begin()' automatically:
+        # 1. Opens a connection
+        # 2. Starts a transaction
+        # 3. Commits if successful, or Rolls Back if it fails
+        with engine.begin() as conn:
+            df.to_sql(
+                name=table_name,
+                con=conn, 
+                if_exists='replace',
+                index=False,
+                method='multi'  # This makes Postgres inserts much faster
+            )
+        print(f"✅ Success! Data fully loaded into '{table_name}'.")
+        
     except Exception as e:
-        print(f"❌ Failed to load data: {e}")
-        raise
+        print(f"❌ Load Failed: {e}")
+        # We re-raise the error so Airflow marks the task as 'Failed'
+        raise 
 
-
-# -------------------------
-# TEST
-# -------------------------
 if __name__ == "__main__":
-    test_df = pd.DataFrame({"status": ["ok"]})
-    load_data(test_df, "health_check")
+    # Local testing logic
+    test_df = pd.DataFrame({'status': ['engine_begin_test'], 'timestamp': [pd.Timestamp.now()]})
+    load_data(test_df, "connection_health_check")

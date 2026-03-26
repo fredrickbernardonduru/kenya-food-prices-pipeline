@@ -3,7 +3,7 @@ pandas==2.2.2
 numpy==1.26.4
 
 # Database
-sqlalchemy>=1.4.36,<2.0
+sqlalchemy>=2.0.0
 psycopg2-binary==2.9.9
 
 # HTTP requests (for extract step)

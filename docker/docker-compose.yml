@@ -17,6 +17,7 @@ services:
     build: 
       context: ..
       dockerfile: docker/Dockerfile.airflow
+    pull_policy: never 
     container_name: kenya_airflow
     depends_on:
       - postgres

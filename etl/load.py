@@ -1,49 +1,86 @@
 import pandas as pd
-from sqlalchemy import create_engine
-import os
+import psycopg2
+from psycopg2.extras import execute_values
 
-# 1. Database Configuration
-# Using the service name 'postgres' as defined in your docker-compose
-DB_HOST = "postgres" 
-DB_PORT = "5432"
-DB_USER = "postgres"              
-DB_PASS = "Huxtler41268690"       
-DB_NAME = "kenya_food_prices"     
+# Database Configuration
+DB_HOST = "postgres"
+DB_PORT = 5432
+DB_USER = "postgres"
+DB_PASS = "Huxtler41268690"
+DB_NAME = "kenya_food_prices"
 
-# 2. Create the Connection URI
-DB_URL = f"postgresql+psycopg2://{DB_USER}:{DB_PASS}@{DB_HOST}:{DB_PORT}/{DB_NAME}"
 
-# 3. Create the SQLAlchemy 2.0 Engine
-engine = create_engine(DB_URL)
+def get_connection():
+    """Create and return a raw psycopg2 connection."""
+    return psycopg2.connect(
+        host=DB_HOST,
+        port=DB_PORT,
+        user=DB_USER,
+        password=DB_PASS,
+        dbname=DB_NAME,
+    )
+
 
 def load_data(df, table_name):
     """
-    Loads a Pandas DataFrame into the Postgres database.
-    Using engine.begin() ensures a secure transaction in SQLAlchemy 2.0.
+    Loads a Pandas DataFrame into Postgres using psycopg2 directly.
+    This bypasses pandas to_sql entirely, so it works with ANY version
+    of pandas, SQLAlchemy, or Python without compatibility conflicts.
     """
-    print(f"🚀 Preparing to load {len(df)} rows into table: {table_name}...")
-    
+    print(f"🚀 Loading {len(df)} rows into table: {table_name}...")
+
     try:
-        # 'with engine.begin()' automatically:
-        # 1. Opens a connection
-        # 2. Starts a transaction
-        # 3. Commits if successful, or Rolls Back if it fails
-        with engine.begin() as conn:
-            df.to_sql(
-                name=table_name,
-                con=conn, 
-                if_exists='replace',
-                index=False,
-                method='multi'  # This makes Postgres inserts much faster
-            )
-        print(f"✅ Success! Data fully loaded into '{table_name}'.")
-        
+        conn = get_connection()
+        cur = conn.cursor()
+
+        # --- Drop and recreate the table to match the DataFrame schema ---
+        columns = df.columns.tolist()
+
+        # Map pandas dtypes to Postgres types
+        dtype_map = {
+            "int64": "BIGINT",
+            "int32": "INTEGER",
+            "float64": "DOUBLE PRECISION",
+            "float32": "REAL",
+            "bool": "BOOLEAN",
+            "datetime64[ns]": "TIMESTAMP",
+            "object": "TEXT",
+        }
+
+        col_defs = []
+        for col in columns:
+            pg_type = dtype_map.get(str(df[col].dtype), "TEXT")
+            col_defs.append(f'"{col}" {pg_type}')
+
+        cur.execute(f'DROP TABLE IF EXISTS "{table_name}"')
+        cur.execute(f'CREATE TABLE "{table_name}" ({", ".join(col_defs)})')
+
+        # --- Bulk insert using execute_values (very fast) ---
+        # Replace NaN/NaT with None so psycopg2 writes NULL
+        df = df.where(pd.notnull(df), None)
+        rows = [tuple(row) for row in df.itertuples(index=False, name=None)]
+
+        col_names = ", ".join(f'"{c}"' for c in columns)
+        execute_values(
+            cur,
+            f'INSERT INTO "{table_name}" ({col_names}) VALUES %s',
+            rows,
+            page_size=1000,
+        )
+
+        conn.commit()
+        cur.close()
+        conn.close()
+        print(f"✅ Success! {len(df)} rows loaded into '{table_name}'.")
+
     except Exception as e:
         print(f"❌ Load Failed: {e}")
-        # We re-raise the error so Airflow marks the task as 'Failed'
-        raise 
+        raise
+
 
 if __name__ == "__main__":
-    # Local testing logic
-    test_df = pd.DataFrame({'status': ['engine_begin_test'], 'timestamp': [pd.Timestamp.now()]})
+    import pandas as pd
+    test_df = pd.DataFrame(
+        {"status": ["connection_test"], "timestamp": [pd.Timestamp.now()]}
+    )
     load_data(test_df, "connection_health_check")

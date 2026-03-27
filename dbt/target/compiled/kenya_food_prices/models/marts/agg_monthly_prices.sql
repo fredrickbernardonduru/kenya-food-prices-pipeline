@@ -9,10 +9,9 @@ SELECT
     c.category,
     m.county,
     m.market,
-    ROUND(AVG(f.price_kes),  2)  AS avg_price_kes,
-    ROUND(AVG(f.price_usd),  4)  AS avg_price_usd,
-    ROUND(AVG(f.price_per_kg), 2) AS avg_price_per_kg,
-    COUNT(*)                      AS observations
+    ROUND(AVG(f.price_kes), 2)  AS avg_price_kes,
+    ROUND(AVG(f.price_usd), 4)  AS avg_price_usd,
+    COUNT(*)                     AS observations
 FROM "kenya_food_prices"."public"."fact_prices"  f
 JOIN "kenya_food_prices"."public"."dim_date"      d ON d.date_id      = f.date_id
 JOIN "kenya_food_prices"."public"."dim_commodity" c ON c.commodity_id = f.commodity_id

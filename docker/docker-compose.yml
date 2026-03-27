@@ -36,3 +36,11 @@ services:
 
 volumes:
   postgres_data:
+
+metabase:
+    image: metabase/metabase
+    container_name: kenya_metabase
+    ports:
+      - "3000:3000"
+    depends_on:
+      - postgres

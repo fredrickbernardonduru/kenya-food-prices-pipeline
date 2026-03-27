@@ -14,4 +14,4 @@ SELECT
     price_type,
     price_flag,
     currency
-FROM {{ ref('stg_food_prices') }}
+FROM "kenya_food_prices"."public"."stg_food_prices"

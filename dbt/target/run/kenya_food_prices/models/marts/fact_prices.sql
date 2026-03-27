@@ -1,4 +1,14 @@
--- fact_prices: grain-level price fact table
+
+  
+    
+
+  create  table "kenya_food_prices"."public"."fact_prices__dbt_tmp"
+  
+  
+    as
+  
+  (
+    -- fact_prices: grain-level price fact table
 SELECT
     MD5(
         COALESCE(price_date::TEXT, '') || '-' ||
@@ -14,4 +24,6 @@ SELECT
     price_type,
     price_flag,
     currency
-FROM {{ ref('stg_food_prices') }}
+FROM "kenya_food_prices"."public"."stg_food_prices"
+  );
+  

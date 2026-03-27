@@ -1,14 +1,11 @@
 # psycopg2-binary is the only hard requirement for load.py
-# (already present in airflow:2.9.0 base, but pinning ensures it's available)
 psycopg2-binary==2.9.9
-
-# pandas — let the base image version win, no pinning needed
-# since we no longer use pandas to_sql at all
+ 
+# pandas — use whatever version is already in the base image
 pandas
-
+ 
 # HTTP requests (for extract step)
 requests==2.31.0
-
+ 
 # Optional utilities
 python-dotenv==1.0.1
-loguru==0.7.2

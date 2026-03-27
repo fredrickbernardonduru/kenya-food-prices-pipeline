@@ -1,0 +1,12 @@
+kenya_food_prices:
+  target: dev
+  outputs:
+    dev:
+      type: postgres
+      host: localhost        # change to 'postgres' if running dbt inside Docker
+      port: 5432
+      user: postgres
+      password: Huxtler41268690
+      dbname: kenya_food_prices
+      schema: public
+      threads: 4

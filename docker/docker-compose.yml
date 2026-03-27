@@ -14,10 +14,10 @@ services:
 
   # 2. The Airflow Service
   airflow:
-    build: 
+    build:
       context: ..
       dockerfile: docker/Dockerfile.airflow
-    pull_policy: never 
+    pull_policy: never
     container_name: kenya_airflow
     depends_on:
       - postgres
@@ -34,13 +34,14 @@ services:
       - ../data:/opt/airflow/data
     command: standalone
 
-volumes:
-  postgres_data:
-
-metabase:
+  # 3. Metabase for dashboards
+  metabase:
     image: metabase/metabase
     container_name: kenya_metabase
     ports:
       - "3000:3000"
     depends_on:
       - postgres
+
+volumes:
+  postgres_data:

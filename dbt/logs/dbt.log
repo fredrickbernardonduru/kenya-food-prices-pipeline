@@ -1,0 +1,698 @@
+[0m09:10:17.381060 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001DC3CD782F0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001DC3889AFD0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001DC3ED33ED0>]}
+
+
+============================== 09:10:17.445208 | 4008ddc1-4ae3-4646-b661-7ac22bbc1979 ==============================
+[0m09:10:17.445208 [info ] [MainThread]: Running with dbt=1.11.7
+[0m09:10:17.447408 [debug] [MainThread]: running dbt with arguments {'partial_parse': 'True', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'send_anonymous_usage_stats': 'True', 'version_check': 'True', 'cache_selected_only': 'False', 'target_path': 'None', 'warn_error': 'None', 'invocation_command': 'dbt debug', 'log_format': 'default', 'use_colors': 'True', 'introspect': 'True', 'debug': 'False', 'printer_width': '80', 'fail_fast': 'False', 'no_print': 'None', 'use_experimental_parser': 'False', 'empty': 'None', 'quiet': 'False', 'log_cache_events': 'False', 'indirect_selection': 'eager', 'log_path': 'C:\\Users\\Fredrich Bernard\\Desktop\\Training\\Data Engineering\\Everything Data\\DataCamp\\Project\\kenya-food-prices-pipeline\\dbt\\logs', 'write_json': 'True', 'static_parser': 'True', 'profiles_dir': 'C:\\Users\\Fredrich Bernard\\Desktop\\Training\\Data Engineering\\Everything Data\\DataCamp\\Project\\kenya-food-prices-pipeline\\dbt'}
+[0m09:10:17.565692 [info ] [MainThread]: dbt version: 1.11.7
+[0m09:10:17.567406 [info ] [MainThread]: python version: 3.13.5
+[0m09:10:17.568922 [info ] [MainThread]: python path: C:\Python313\python.exe
+[0m09:10:17.570619 [info ] [MainThread]: os info: Windows-10-10.0.19045-SP0
+[0m09:10:18.395088 [info ] [MainThread]: Using profiles dir at C:\Users\Fredrich Bernard\Desktop\Training\Data Engineering\Everything Data\DataCamp\Project\kenya-food-prices-pipeline\dbt
+[0m09:10:18.399311 [info ] [MainThread]: Using profiles.yml file at C:\Users\Fredrich Bernard\Desktop\Training\Data Engineering\Everything Data\DataCamp\Project\kenya-food-prices-pipeline\dbt\profiles.yml
+[0m09:10:18.402149 [info ] [MainThread]: Using dbt_project.yml file at C:\Users\Fredrich Bernard\Desktop\Training\Data Engineering\Everything Data\DataCamp\Project\kenya-food-prices-pipeline\dbt\dbt_project.yml
+[0m09:10:18.411652 [info ] [MainThread]: adapter type: postgres
+[0m09:10:18.415072 [info ] [MainThread]: adapter version: 1.10.0
+[0m09:10:18.945361 [info ] [MainThread]: Configuration:
+[0m09:10:18.947399 [info ] [MainThread]:   profiles.yml file [[32mOK found and valid[0m]
+[0m09:10:18.949309 [info ] [MainThread]:   dbt_project.yml file [[32mOK found and valid[0m]
+[0m09:10:18.951059 [info ] [MainThread]: Required dependencies:
+[0m09:10:18.953075 [debug] [MainThread]: Executing "git --help"
+[0m09:10:19.077442 [debug] [MainThread]: STDOUT: "b"usage: git [-v | --version] [-h | --help] [-C <path>] [-c <name>=<value>]\n           [--exec-path[=<path>]] [--html-path] [--man-path] [--info-path]\n           [-p | --paginate | -P | --no-pager] [--no-replace-objects] [--bare]\n           [--git-dir=<path>] [--work-tree=<path>] [--namespace=<name>]\n           [--config-env=<name>=<envvar>] <command> [<args>]\n\nThese are common Git commands used in various situations:\n\nstart a working area (see also: git help tutorial)\n   clone     Clone a repository into a new directory\n   init      Create an empty Git repository or reinitialize an existing one\n\nwork on the current change (see also: git help everyday)\n   add       Add file contents to the index\n   mv        Move or rename a file, a directory, or a symlink\n   restore   Restore working tree files\n   rm        Remove files from the working tree and from the index\n\nexamine the history and state (see also: git help revisions)\n   bisect    Use binary search to find the commit that introduced a bug\n   diff      Show changes between commits, commit and working tree, etc\n   grep      Print lines matching a pattern\n   log       Show commit logs\n   show      Show various types of objects\n   status    Show the working tree status\n\ngrow, mark and tweak your common history\n   branch    List, create, or delete branches\n   commit    Record changes to the repository\n   merge     Join two or more development histories together\n   rebase    Reapply commits on top of another base tip\n   reset     Reset current HEAD to the specified state\n   switch    Switch branches\n   tag       Create, list, delete or verify a tag object signed with GPG\n\ncollaborate (see also: git help workflows)\n   fetch     Download objects and refs from another repository\n   pull      Fetch from and integrate with another repository or a local branch\n   push      Update remote refs along with associated objects\n\n'git help -a' and 'git help -g' list available subcommands and some\nconcept guides. See 'git help <command>' or 'git help <concept>'\nto read about a specific subcommand or concept.\nSee 'git help git' for an overview of the system.\n""
+[0m09:10:19.078999 [debug] [MainThread]: STDERR: "b''"
+[0m09:10:19.079845 [info ] [MainThread]:  - git [[32mOK found[0m]
+
+[0m09:10:19.081247 [info ] [MainThread]: Connection:
+[0m09:10:19.082604 [info ] [MainThread]:   host: localhost
+[0m09:10:19.083977 [info ] [MainThread]:   port: 5432
+[0m09:10:19.085323 [info ] [MainThread]:   user: postgres
+[0m09:10:19.086352 [info ] [MainThread]:   database: kenya_food_prices
+[0m09:10:19.092055 [info ] [MainThread]:   schema: public
+[0m09:10:19.093656 [info ] [MainThread]:   connect_timeout: 10
+[0m09:10:19.095143 [info ] [MainThread]:   role: None
+[0m09:10:19.096512 [info ] [MainThread]:   search_path: None
+[0m09:10:19.098940 [info ] [MainThread]:   keepalives_idle: 0
+[0m09:10:19.100799 [info ] [MainThread]:   sslmode: None
+[0m09:10:19.102186 [info ] [MainThread]:   sslcert: None
+[0m09:10:19.104912 [info ] [MainThread]:   sslkey: None
+[0m09:10:19.108283 [info ] [MainThread]:   sslrootcert: None
+[0m09:10:19.109588 [info ] [MainThread]:   application_name: dbt
+[0m09:10:19.110848 [info ] [MainThread]:   retries: 1
+[0m09:10:19.115640 [info ] [MainThread]: Registered adapter: postgres=1.10.0
+[0m09:10:20.146426 [debug] [MainThread]: Acquiring new postgres connection 'debug'
+[0m09:10:28.615362 [debug] [MainThread]: Using postgres connection "debug"
+[0m09:10:28.616675 [debug] [MainThread]: On debug: select 1 as id
+[0m09:10:28.617778 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m09:10:28.780040 [debug] [MainThread]: SQL status: SELECT 1 in 0.162 seconds
+[0m09:10:28.782444 [debug] [MainThread]: On debug: Close
+[0m09:10:28.783176 [info ] [MainThread]:   Connection test: [[32mOK connection ok[0m]
+
+[0m09:10:28.784403 [info ] [MainThread]: [32mAll checks passed![0m
+[0m09:10:28.787354 [debug] [MainThread]: Command `dbt debug` succeeded at 09:10:28.787022 after 11.87 seconds
+[0m09:10:28.788015 [debug] [MainThread]: Connection 'debug' was properly closed.
+[0m09:10:28.788603 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001DC3F115BA0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001DC3F195250>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001DC3EF26250>]}
+[0m09:10:28.789229 [debug] [MainThread]: Flushing usage events
+[0m09:10:35.858137 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m09:10:55.424196 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000023BDE1582F0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000023BD9C7AFD0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000023BE010FED0>]}
+
+
+============================== 09:10:55.444190 | 34102041-83ec-468c-9e92-f5cabdf75a23 ==============================
+[0m09:10:55.444190 [info ] [MainThread]: Running with dbt=1.11.7
+[0m09:10:55.446310 [debug] [MainThread]: running dbt with arguments {'partial_parse': 'True', 'profiles_dir': 'C:\\Users\\Fredrich Bernard\\Desktop\\Training\\Data Engineering\\Everything Data\\DataCamp\\Project\\kenya-food-prices-pipeline\\dbt', 'send_anonymous_usage_stats': 'True', 'version_check': 'True', 'cache_selected_only': 'False', 'target_path': 'None', 'use_colors': 'True', 'invocation_command': 'dbt debug', 'log_format': 'default', 'warn_error': 'None', 'introspect': 'True', 'debug': 'False', 'log_cache_events': 'False', 'fail_fast': 'False', 'no_print': 'None', 'empty': 'None', 'use_experimental_parser': 'False', 'quiet': 'False', 'printer_width': '80', 'log_path': 'C:\\Users\\Fredrich Bernard\\Desktop\\Training\\Data Engineering\\Everything Data\\DataCamp\\Project\\kenya-food-prices-pipeline\\dbt\\logs', 'indirect_selection': 'eager', 'write_json': 'True', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'static_parser': 'True'}
+[0m09:10:55.503775 [info ] [MainThread]: dbt version: 1.11.7
+[0m09:10:55.505002 [info ] [MainThread]: python version: 3.13.5
+[0m09:10:55.506499 [info ] [MainThread]: python path: C:\Python313\python.exe
+[0m09:10:55.508531 [info ] [MainThread]: os info: Windows-10-10.0.19045-SP0
+[0m09:10:55.651905 [info ] [MainThread]: Using profiles dir at C:\Users\Fredrich Bernard\Desktop\Training\Data Engineering\Everything Data\DataCamp\Project\kenya-food-prices-pipeline\dbt
+[0m09:10:55.653204 [info ] [MainThread]: Using profiles.yml file at C:\Users\Fredrich Bernard\Desktop\Training\Data Engineering\Everything Data\DataCamp\Project\kenya-food-prices-pipeline\dbt\profiles.yml
+[0m09:10:55.654581 [info ] [MainThread]: Using dbt_project.yml file at C:\Users\Fredrich Bernard\Desktop\Training\Data Engineering\Everything Data\DataCamp\Project\kenya-food-prices-pipeline\dbt\dbt_project.yml
+[0m09:10:55.657330 [info ] [MainThread]: adapter type: postgres
+[0m09:10:55.658515 [info ] [MainThread]: adapter version: 1.10.0
+[0m09:10:55.850623 [info ] [MainThread]: Configuration:
+[0m09:10:55.851522 [info ] [MainThread]:   profiles.yml file [[32mOK found and valid[0m]
+[0m09:10:55.852286 [info ] [MainThread]:   dbt_project.yml file [[32mOK found and valid[0m]
+[0m09:10:55.852980 [info ] [MainThread]: Required dependencies:
+[0m09:10:55.853738 [debug] [MainThread]: Executing "git --help"
+[0m09:10:55.914252 [debug] [MainThread]: STDOUT: "b"usage: git [-v | --version] [-h | --help] [-C <path>] [-c <name>=<value>]\n           [--exec-path[=<path>]] [--html-path] [--man-path] [--info-path]\n           [-p | --paginate | -P | --no-pager] [--no-replace-objects] [--bare]\n           [--git-dir=<path>] [--work-tree=<path>] [--namespace=<name>]\n           [--config-env=<name>=<envvar>] <command> [<args>]\n\nThese are common Git commands used in various situations:\n\nstart a working area (see also: git help tutorial)\n   clone     Clone a repository into a new directory\n   init      Create an empty Git repository or reinitialize an existing one\n\nwork on the current change (see also: git help everyday)\n   add       Add file contents to the index\n   mv        Move or rename a file, a directory, or a symlink\n   restore   Restore working tree files\n   rm        Remove files from the working tree and from the index\n\nexamine the history and state (see also: git help revisions)\n   bisect    Use binary search to find the commit that introduced a bug\n   diff      Show changes between commits, commit and working tree, etc\n   grep      Print lines matching a pattern\n   log       Show commit logs\n   show      Show various types of objects\n   status    Show the working tree status\n\ngrow, mark and tweak your common history\n   branch    List, create, or delete branches\n   commit    Record changes to the repository\n   merge     Join two or more development histories together\n   rebase    Reapply commits on top of another base tip\n   reset     Reset current HEAD to the specified state\n   switch    Switch branches\n   tag       Create, list, delete or verify a tag object signed with GPG\n\ncollaborate (see also: git help workflows)\n   fetch     Download objects and refs from another repository\n   pull      Fetch from and integrate with another repository or a local branch\n   push      Update remote refs along with associated objects\n\n'git help -a' and 'git help -g' list available subcommands and some\nconcept guides. See 'git help <command>' or 'git help <concept>'\nto read about a specific subcommand or concept.\nSee 'git help git' for an overview of the system.\n""
+[0m09:10:55.915086 [debug] [MainThread]: STDERR: "b''"
+[0m09:10:55.915805 [info ] [MainThread]:  - git [[32mOK found[0m]
+
+[0m09:10:55.916702 [info ] [MainThread]: Connection:
+[0m09:10:55.917476 [info ] [MainThread]:   host: localhost
+[0m09:10:55.918113 [info ] [MainThread]:   port: 5432
+[0m09:10:55.918825 [info ] [MainThread]:   user: postgres
+[0m09:10:55.919490 [info ] [MainThread]:   database: kenya_food_prices
+[0m09:10:55.920171 [info ] [MainThread]:   schema: public
+[0m09:10:55.920883 [info ] [MainThread]:   connect_timeout: 10
+[0m09:10:55.921819 [info ] [MainThread]:   role: None
+[0m09:10:55.922766 [info ] [MainThread]:   search_path: None
+[0m09:10:55.924880 [info ] [MainThread]:   keepalives_idle: 0
+[0m09:10:55.928271 [info ] [MainThread]:   sslmode: None
+[0m09:10:55.929598 [info ] [MainThread]:   sslcert: None
+[0m09:10:55.930496 [info ] [MainThread]:   sslkey: None
+[0m09:10:55.931230 [info ] [MainThread]:   sslrootcert: None
+[0m09:10:55.931903 [info ] [MainThread]:   application_name: dbt
+[0m09:10:55.932959 [info ] [MainThread]:   retries: 1
+[0m09:10:55.934236 [info ] [MainThread]: Registered adapter: postgres=1.10.0
+[0m09:10:56.453543 [debug] [MainThread]: Acquiring new postgres connection 'debug'
+[0m09:10:56.587624 [debug] [MainThread]: Using postgres connection "debug"
+[0m09:10:56.588185 [debug] [MainThread]: On debug: select 1 as id
+[0m09:10:56.588643 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m09:10:56.647529 [debug] [MainThread]: SQL status: SELECT 1 in 0.059 seconds
+[0m09:10:56.649199 [debug] [MainThread]: On debug: Close
+[0m09:10:56.649764 [info ] [MainThread]:   Connection test: [[32mOK connection ok[0m]
+
+[0m09:10:56.650850 [info ] [MainThread]: [32mAll checks passed![0m
+[0m09:10:56.653052 [debug] [MainThread]: Command `dbt debug` succeeded at 09:10:56.652842 after 1.46 seconds
+[0m09:10:56.653536 [debug] [MainThread]: Connection 'debug' was properly closed.
+[0m09:10:56.654013 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000023BE0579BA0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000023BE05F5250>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000023BE030A250>]}
+[0m09:10:56.654547 [debug] [MainThread]: Flushing usage events
+[0m09:10:58.780911 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m09:13:56.126220 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001752CB4C2F0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000175286BAFD0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001752EB03ED0>]}
+
+
+============================== 09:13:56.141760 | 2d76a82f-2b4c-4cea-89be-39e5c6e67526 ==============================
+[0m09:13:56.141760 [info ] [MainThread]: Running with dbt=1.11.7
+[0m09:13:56.143305 [debug] [MainThread]: running dbt with arguments {'partial_parse': 'True', 'profiles_dir': 'C:\\Users\\Fredrich Bernard\\Desktop\\Training\\Data Engineering\\Everything Data\\DataCamp\\Project\\kenya-food-prices-pipeline\\dbt', 'send_anonymous_usage_stats': 'True', 'version_check': 'True', 'cache_selected_only': 'False', 'target_path': 'None', 'warn_error': 'None', 'invocation_command': 'dbt run', 'log_format': 'default', 'use_colors': 'True', 'introspect': 'True', 'debug': 'False', 'printer_width': '80', 'fail_fast': 'False', 'no_print': 'None', 'empty': 'False', 'quiet': 'False', 'use_experimental_parser': 'False', 'log_cache_events': 'False', 'indirect_selection': 'eager', 'log_path': 'C:\\Users\\Fredrich Bernard\\Desktop\\Training\\Data Engineering\\Everything Data\\DataCamp\\Project\\kenya-food-prices-pipeline\\dbt\\logs', 'write_json': 'True', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'static_parser': 'True'}
+[0m09:13:56.646767 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': '2d76a82f-2b4c-4cea-89be-39e5c6e67526', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001752CF04FC0>]}
+[0m09:13:56.800239 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': '2d76a82f-2b4c-4cea-89be-39e5c6e67526', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001752EC1ABE0>]}
+[0m09:13:56.802111 [info ] [MainThread]: Registered adapter: postgres=1.10.0
+[0m09:13:57.369836 [debug] [MainThread]: checksum: b80718358155fc17c3559352095564dd56ada1cc1a1c0ef2e62c857e71583775, vars: {}, profile: , target: , version: 1.11.7
+[0m09:13:57.371620 [info ] [MainThread]: Unable to do partial parsing because saved manifest not found. Starting full parse.
+[0m09:13:57.372803 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'partial_parser', 'label': '2d76a82f-2b4c-4cea-89be-39e5c6e67526', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001752ECCA150>]}
+[0m09:14:02.900987 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': '2d76a82f-2b4c-4cea-89be-39e5c6e67526', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001752EFB6120>]}
+[0m09:14:03.877578 [debug] [MainThread]: Wrote artifact WritableManifest to C:\Users\Fredrich Bernard\Desktop\Training\Data Engineering\Everything Data\DataCamp\Project\kenya-food-prices-pipeline\dbt\target\manifest.json
+[0m09:14:03.890412 [debug] [MainThread]: Wrote artifact SemanticManifest to C:\Users\Fredrich Bernard\Desktop\Training\Data Engineering\Everything Data\DataCamp\Project\kenya-food-prices-pipeline\dbt\target\semantic_manifest.json
+[0m09:14:04.098742 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': '2d76a82f-2b4c-4cea-89be-39e5c6e67526', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001752F5F04B0>]}
+[0m09:14:04.100624 [info ] [MainThread]: Found 6 models, 16 data tests, 1 source, 464 macros
+[0m09:14:04.105425 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '2d76a82f-2b4c-4cea-89be-39e5c6e67526', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001752F25E0D0>]}
+[0m09:14:04.115413 [info ] [MainThread]: 
+[0m09:14:04.117765 [info ] [MainThread]: Concurrency: 4 threads (target='dev')
+[0m09:14:04.139393 [info ] [MainThread]: 
+[0m09:14:04.167999 [debug] [MainThread]: Acquiring new postgres connection 'master'
+[0m09:14:04.242820 [debug] [ThreadPool]: Acquiring new postgres connection 'list_kenya_food_prices'
+[0m09:14:04.677147 [debug] [ThreadPool]: Using postgres connection "list_kenya_food_prices"
+[0m09:14:04.678130 [debug] [ThreadPool]: On list_kenya_food_prices: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "kenya_food_prices", "target_name": "dev", "connection_name": "list_kenya_food_prices"} */
+
+    select distinct nspname from pg_namespace
+  
+[0m09:14:04.679154 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m09:14:04.931905 [debug] [ThreadPool]: SQL status: SELECT 4 in 0.253 seconds
+[0m09:14:04.935507 [debug] [ThreadPool]: On list_kenya_food_prices: Close
+[0m09:14:04.940721 [debug] [ThreadPool]: Acquiring new postgres connection 'list_kenya_food_prices_public'
+[0m09:14:04.957659 [debug] [ThreadPool]: Using postgres connection "list_kenya_food_prices_public"
+[0m09:14:04.958497 [debug] [ThreadPool]: On list_kenya_food_prices_public: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "kenya_food_prices", "target_name": "dev", "connection_name": "list_kenya_food_prices_public"} */
+select
+      'kenya_food_prices' as database,
+      tablename as name,
+      schemaname as schema,
+      'table' as type
+    from pg_tables
+    where schemaname ilike 'public'
+    union all
+    select
+      'kenya_food_prices' as database,
+      viewname as name,
+      schemaname as schema,
+      'view' as type
+    from pg_views
+    where schemaname ilike 'public'
+    union all
+    select
+      'kenya_food_prices' as database,
+      matviewname as name,
+      schemaname as schema,
+      'materialized_view' as type
+    from pg_matviews
+    where schemaname ilike 'public'
+  
+[0m09:14:04.959047 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m09:14:05.156234 [debug] [ThreadPool]: SQL status: SELECT 7 in 0.197 seconds
+[0m09:14:05.160505 [debug] [ThreadPool]: On list_kenya_food_prices_public: ROLLBACK
+[0m09:14:05.162218 [debug] [ThreadPool]: On list_kenya_food_prices_public: Close
+[0m09:14:05.183783 [debug] [MainThread]: Using postgres connection "master"
+[0m09:14:05.185936 [debug] [MainThread]: On master: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "kenya_food_prices", "target_name": "dev", "connection_name": "master"} */
+select distinct
+        dependent_namespace.nspname as dependent_schema,
+        dependent_class.relname as dependent_name,
+        referenced_namespace.nspname as referenced_schema,
+        referenced_class.relname as referenced_name
+
+    -- Query for views: views are entries in pg_class with an entry in pg_rewrite, but we avoid
+    -- a seq scan on pg_rewrite by leveraging the fact there is an "internal" row in pg_depend for
+    -- the view...
+    from pg_class as dependent_class
+    join pg_namespace as dependent_namespace on dependent_namespace.oid = dependent_class.relnamespace
+    join pg_depend as dependent_depend on dependent_depend.refobjid = dependent_class.oid
+        and dependent_depend.classid = 'pg_rewrite'::regclass
+        and dependent_depend.refclassid = 'pg_class'::regclass
+        and dependent_depend.deptype = 'i'
+
+    -- ... and via pg_depend (that has a row per column, hence the need for "distinct" above, and
+    -- making sure to exclude the internal row to avoid a view appearing to depend on itself)...
+    join pg_depend as joining_depend on joining_depend.objid = dependent_depend.objid
+        and joining_depend.classid = 'pg_rewrite'::regclass
+        and joining_depend.refclassid = 'pg_class'::regclass
+        and joining_depend.refobjid != dependent_depend.refobjid
+
+    -- ... we can find the tables they query from in pg_class, but excluding system tables. Note we
+    -- don't need need to exclude _dependent_ system tables, because they only query from other
+    -- system tables, and so are automatically excluded by excluding _referenced_ system tables
+    join pg_class as referenced_class on referenced_class.oid = joining_depend.refobjid
+    join pg_namespace as referenced_namespace on referenced_namespace.oid = referenced_class.relnamespace
+        and referenced_namespace.nspname != 'information_schema'
+        and referenced_namespace.nspname not like 'pg\_%'
+
+    order by
+        dependent_schema, dependent_name, referenced_schema, referenced_name;
+[0m09:14:05.187307 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m09:14:05.428624 [debug] [MainThread]: SQL status: SELECT 0 in 0.241 seconds
+[0m09:14:05.432193 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '2d76a82f-2b4c-4cea-89be-39e5c6e67526', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001752F4962D0>]}
+[0m09:14:05.433634 [debug] [MainThread]: On master: ROLLBACK
+[0m09:14:05.435556 [debug] [MainThread]: On master: COMMIT
+[0m09:14:05.436813 [debug] [MainThread]: Using postgres connection "master"
+[0m09:14:05.437627 [debug] [MainThread]: On master: COMMIT
+[0m09:14:05.438719 [debug] [MainThread]: SQL status: COMMIT in 0.000 seconds
+[0m09:14:05.439720 [debug] [MainThread]: On master: Close
+[0m09:14:05.826499 [debug] [Thread-1 (]: Began running node model.kenya_food_prices.stg_food_prices
+[0m09:14:05.828483 [info ] [Thread-1 (]: 1 of 6 START sql view model public.stg_food_prices ............................. [RUN]
+[0m09:14:05.835978 [debug] [Thread-1 (]: Acquiring new postgres connection 'model.kenya_food_prices.stg_food_prices'
+[0m09:14:05.837749 [debug] [Thread-1 (]: Began compiling node model.kenya_food_prices.stg_food_prices
+[0m09:14:05.889160 [debug] [Thread-1 (]: Writing injected SQL for node "model.kenya_food_prices.stg_food_prices"
+[0m09:14:05.897250 [debug] [Thread-1 (]: Began executing node model.kenya_food_prices.stg_food_prices
+[0m09:14:06.481943 [debug] [Thread-1 (]: Writing runtime sql for node "model.kenya_food_prices.stg_food_prices"
+[0m09:14:06.796839 [debug] [Thread-1 (]: Using postgres connection "model.kenya_food_prices.stg_food_prices"
+[0m09:14:06.805980 [debug] [Thread-1 (]: On model.kenya_food_prices.stg_food_prices: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "kenya_food_prices", "target_name": "dev", "node_id": "model.kenya_food_prices.stg_food_prices"} */
+
+  create view "kenya_food_prices"."public"."stg_food_prices__dbt_tmp"
+    
+    
+  as (
+    -- stg_food_prices: clean view over raw_food_prices
+-- Casts types, renames columns, filters obvious bad data
+
+SELECT
+    date::DATE                              AS price_date,
+    EXTRACT(YEAR  FROM date)::INT           AS year,
+    EXTRACT(MONTH FROM date)::INT           AS month,
+    EXTRACT(QUARTER FROM date)::INT         AS quarter,
+    market_id::INT                          AS market_id,
+    market,
+    admin1                                  AS county,
+    admin2                                  AS sub_county,
+    latitude::NUMERIC(9,6)                  AS latitude,
+    longitude::NUMERIC(9,6)                 AS longitude,
+    commodity_id::INT                       AS commodity_id,
+    commodity,
+    category,
+    unit,
+    pricetype                               AS price_type,
+    priceflag                               AS price_flag,
+    currency,
+    price::NUMERIC(12,4)                    AS price_kes,
+    usdprice::NUMERIC(12,4)                 AS price_usd,
+    price_per_kg::NUMERIC(12,4)             AS price_per_kg
+FROM "kenya_food_prices"."public"."raw_food_prices"
+WHERE price > 0
+  AND date IS NOT NULL
+  AND market_id IS NOT NULL
+  AND commodity_id IS NOT NULL
+  );
+[0m09:14:06.807806 [debug] [Thread-1 (]: Opening a new connection, currently in state init
+[0m09:14:07.701118 [debug] [Thread-1 (]: Postgres adapter: Postgres error: column "price_per_kg" does not exist
+LINE 30:     price_per_kg::NUMERIC(12,4)             AS price_per_kg
+             ^
+
+[0m09:14:07.702766 [debug] [Thread-1 (]: On model.kenya_food_prices.stg_food_prices: ROLLBACK
+[0m09:14:07.704721 [debug] [Thread-1 (]: On model.kenya_food_prices.stg_food_prices: Close
+[0m09:14:07.898443 [debug] [Thread-1 (]: Database Error in model stg_food_prices (models\staging\stg_food_prices.sql)
+  column "price_per_kg" does not exist
+  LINE 30:     price_per_kg::NUMERIC(12,4)             AS price_per_kg
+               ^
+  compiled code at target\run\kenya_food_prices\models\staging\stg_food_prices.sql
+[0m09:14:07.908472 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '2d76a82f-2b4c-4cea-89be-39e5c6e67526', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001752F5B7C20>]}
+[0m09:14:07.910505 [error] [Thread-1 (]: 1 of 6 ERROR creating sql view model public.stg_food_prices .................... [[31mERROR[0m in 2.07s]
+[0m09:14:08.086986 [debug] [Thread-1 (]: Finished running node model.kenya_food_prices.stg_food_prices
+[0m09:14:08.090582 [debug] [Thread-7 (]: Marking all children of 'model.kenya_food_prices.stg_food_prices' to be skipped because of status 'error'.  Reason: Database Error in model stg_food_prices (models\staging\stg_food_prices.sql)
+  column "price_per_kg" does not exist
+  LINE 30:     price_per_kg::NUMERIC(12,4)             AS price_per_kg
+               ^
+  compiled code at target\run\kenya_food_prices\models\staging\stg_food_prices.sql.
+[0m09:14:08.095422 [debug] [Thread-2 (]: Began running node model.kenya_food_prices.dim_commodity
+[0m09:14:08.101266 [debug] [Thread-3 (]: Began running node model.kenya_food_prices.dim_date
+[0m09:14:08.104705 [debug] [Thread-1 (]: Began running node model.kenya_food_prices.fact_prices
+[0m09:14:08.111460 [debug] [Thread-4 (]: Began running node model.kenya_food_prices.dim_market
+[0m09:14:08.109609 [info ] [Thread-3 (]: 3 of 6 SKIP relation public.dim_date ........................................... [[33mSKIP[0m]
+[0m09:14:08.273946 [debug] [Thread-3 (]: Finished running node model.kenya_food_prices.dim_date
+[0m09:14:08.112777 [info ] [Thread-2 (]: 2 of 6 SKIP relation public.dim_commodity ...................................... [[33mSKIP[0m]
+[0m09:14:08.444865 [debug] [Thread-2 (]: Finished running node model.kenya_food_prices.dim_commodity
+[0m09:14:08.114251 [info ] [Thread-1 (]: 5 of 6 SKIP relation public.fact_prices ........................................ [[33mSKIP[0m]
+[0m09:14:08.572566 [debug] [Thread-1 (]: Finished running node model.kenya_food_prices.fact_prices
+[0m09:14:08.119153 [info ] [Thread-4 (]: 4 of 6 SKIP relation public.dim_market ......................................... [[33mSKIP[0m]
+[0m09:14:08.757593 [debug] [Thread-4 (]: Finished running node model.kenya_food_prices.dim_market
+[0m09:14:08.759665 [debug] [Thread-3 (]: Began running node model.kenya_food_prices.agg_monthly_prices
+[0m09:14:08.760883 [info ] [Thread-3 (]: 6 of 6 SKIP relation public.agg_monthly_prices ................................. [[33mSKIP[0m]
+[0m09:14:08.912501 [debug] [Thread-3 (]: Finished running node model.kenya_food_prices.agg_monthly_prices
+[0m09:14:09.143452 [debug] [MainThread]: On master: COMMIT
+[0m09:14:09.144774 [debug] [MainThread]: Using postgres connection "master"
+[0m09:14:09.145846 [debug] [MainThread]: On master: COMMIT
+[0m09:14:09.146931 [debug] [MainThread]: Opening a new connection, currently in state closed
+[0m09:14:09.842686 [debug] [MainThread]: SQL status: COMMIT in 0.696 seconds
+[0m09:14:09.843792 [debug] [MainThread]: On master: Close
+[0m09:14:09.844902 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m09:14:09.845741 [debug] [MainThread]: Connection 'list_kenya_food_prices' was properly closed.
+[0m09:14:09.846559 [debug] [MainThread]: Connection 'list_kenya_food_prices_public' was properly closed.
+[0m09:14:09.847515 [debug] [MainThread]: Connection 'model.kenya_food_prices.stg_food_prices' was properly closed.
+[0m09:14:09.848748 [info ] [MainThread]: 
+[0m09:14:09.957885 [info ] [MainThread]: Finished running 5 table models, 1 view model in 0 hours 0 minutes and 5.68 seconds (5.68s).
+[0m09:14:10.153031 [debug] [MainThread]: Command end result
+[0m09:14:10.765944 [debug] [MainThread]: Wrote artifact WritableManifest to C:\Users\Fredrich Bernard\Desktop\Training\Data Engineering\Everything Data\DataCamp\Project\kenya-food-prices-pipeline\dbt\target\manifest.json
+[0m09:14:10.773625 [debug] [MainThread]: Wrote artifact SemanticManifest to C:\Users\Fredrich Bernard\Desktop\Training\Data Engineering\Everything Data\DataCamp\Project\kenya-food-prices-pipeline\dbt\target\semantic_manifest.json
+[0m09:14:10.853870 [debug] [MainThread]: Wrote artifact RunExecutionResult to C:\Users\Fredrich Bernard\Desktop\Training\Data Engineering\Everything Data\DataCamp\Project\kenya-food-prices-pipeline\dbt\target\run_results.json
+[0m09:14:10.854912 [info ] [MainThread]: 
+[0m09:14:10.987036 [info ] [MainThread]: [31mCompleted with 1 error, 0 partial successes, and 0 warnings:[0m
+[0m09:14:11.104448 [info ] [MainThread]: 
+[0m09:14:11.249885 [error] [MainThread]: [31mFailure in model stg_food_prices (models\staging\stg_food_prices.sql)[0m
+[0m09:14:11.419836 [error] [MainThread]:   Database Error in model stg_food_prices (models\staging\stg_food_prices.sql)
+  column "price_per_kg" does not exist
+  LINE 30:     price_per_kg::NUMERIC(12,4)             AS price_per_kg
+               ^
+  compiled code at target\run\kenya_food_prices\models\staging\stg_food_prices.sql
+[0m09:14:11.557232 [info ] [MainThread]: 
+[0m09:14:11.655469 [info ] [MainThread]:   compiled code at target\compiled\kenya_food_prices\models\staging\stg_food_prices.sql
+[0m09:14:11.707664 [info ] [MainThread]: 
+[0m09:14:11.739609 [info ] [MainThread]: Done. PASS=0 WARN=0 ERROR=1 SKIP=5 NO-OP=0 TOTAL=6
+[0m09:14:11.767847 [debug] [MainThread]: Command `dbt run` failed at 09:14:11.767375 after 15.94 seconds
+[0m09:14:11.769189 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001752F5F4F50>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001752F46C290>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001752F4FA9D0>]}
+[0m09:14:11.770903 [debug] [MainThread]: Flushing usage events
+[0m09:14:16.744017 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m09:17:33.809743 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001A7E97D82F0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001A7E537AFD0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001A7EB793ED0>]}
+
+
+============================== 09:17:33.841170 | 5248ad42-d15f-45cb-9a3a-e9de35e39c32 ==============================
+[0m09:17:33.841170 [info ] [MainThread]: Running with dbt=1.11.7
+[0m09:17:33.869977 [debug] [MainThread]: running dbt with arguments {'partial_parse': 'True', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'send_anonymous_usage_stats': 'True', 'use_colors': 'True', 'cache_selected_only': 'False', 'target_path': 'None', 'version_check': 'True', 'invocation_command': 'dbt run', 'log_format': 'default', 'warn_error': 'None', 'introspect': 'True', 'debug': 'False', 'printer_width': '80', 'fail_fast': 'False', 'no_print': 'None', 'empty': 'False', 'use_experimental_parser': 'False', 'quiet': 'False', 'log_cache_events': 'False', 'log_path': 'C:\\Users\\Fredrich Bernard\\Desktop\\Training\\Data Engineering\\Everything Data\\DataCamp\\Project\\kenya-food-prices-pipeline\\dbt\\logs', 'indirect_selection': 'eager', 'profiles_dir': 'C:\\Users\\Fredrich Bernard\\Desktop\\Training\\Data Engineering\\Everything Data\\DataCamp\\Project\\kenya-food-prices-pipeline\\dbt', 'static_parser': 'True', 'write_json': 'True'}
+[0m09:17:35.952011 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': '5248ad42-d15f-45cb-9a3a-e9de35e39c32', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001A7E9B94FC0>]}
+[0m09:17:36.550706 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': '5248ad42-d15f-45cb-9a3a-e9de35e39c32', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001A7EB8A2BE0>]}
+[0m09:17:36.590701 [info ] [MainThread]: Registered adapter: postgres=1.10.0
+[0m09:17:38.201106 [debug] [MainThread]: checksum: b80718358155fc17c3559352095564dd56ada1cc1a1c0ef2e62c857e71583775, vars: {}, profile: , target: , version: 1.11.7
+[0m09:17:39.017771 [debug] [MainThread]: Partial parsing enabled: 0 files deleted, 0 files added, 1 files changed.
+[0m09:17:39.018832 [debug] [MainThread]: Partial parsing: updated file: kenya_food_prices://models\staging\stg_food_prices.sql
+[0m09:17:40.316380 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': '5248ad42-d15f-45cb-9a3a-e9de35e39c32', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001A7EBF2EB50>]}
+[0m09:17:40.547553 [debug] [MainThread]: Wrote artifact WritableManifest to C:\Users\Fredrich Bernard\Desktop\Training\Data Engineering\Everything Data\DataCamp\Project\kenya-food-prices-pipeline\dbt\target\manifest.json
+[0m09:17:40.553939 [debug] [MainThread]: Wrote artifact SemanticManifest to C:\Users\Fredrich Bernard\Desktop\Training\Data Engineering\Everything Data\DataCamp\Project\kenya-food-prices-pipeline\dbt\target\semantic_manifest.json
+[0m09:17:40.650193 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': '5248ad42-d15f-45cb-9a3a-e9de35e39c32', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001A7EBCA72F0>]}
+[0m09:17:40.651590 [info ] [MainThread]: Found 6 models, 16 data tests, 1 source, 464 macros
+[0m09:17:40.659823 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '5248ad42-d15f-45cb-9a3a-e9de35e39c32', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001A7EBBB6A50>]}
+[0m09:17:40.666871 [info ] [MainThread]: 
+[0m09:17:40.668764 [info ] [MainThread]: Concurrency: 4 threads (target='dev')
+[0m09:17:40.670924 [info ] [MainThread]: 
+[0m09:17:40.674070 [debug] [MainThread]: Acquiring new postgres connection 'master'
+[0m09:17:40.701859 [debug] [ThreadPool]: Acquiring new postgres connection 'list_kenya_food_prices'
+[0m09:17:41.763434 [debug] [ThreadPool]: Using postgres connection "list_kenya_food_prices"
+[0m09:17:41.764586 [debug] [ThreadPool]: On list_kenya_food_prices: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "kenya_food_prices", "target_name": "dev", "connection_name": "list_kenya_food_prices"} */
+
+    select distinct nspname from pg_namespace
+  
+[0m09:17:41.765569 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m09:17:42.030614 [debug] [ThreadPool]: SQL status: SELECT 4 in 0.265 seconds
+[0m09:17:42.032933 [debug] [ThreadPool]: On list_kenya_food_prices: Close
+[0m09:17:42.037342 [debug] [ThreadPool]: Acquiring new postgres connection 'list_kenya_food_prices_public'
+[0m09:17:42.062682 [debug] [ThreadPool]: Using postgres connection "list_kenya_food_prices_public"
+[0m09:17:42.064268 [debug] [ThreadPool]: On list_kenya_food_prices_public: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "kenya_food_prices", "target_name": "dev", "connection_name": "list_kenya_food_prices_public"} */
+select
+      'kenya_food_prices' as database,
+      tablename as name,
+      schemaname as schema,
+      'table' as type
+    from pg_tables
+    where schemaname ilike 'public'
+    union all
+    select
+      'kenya_food_prices' as database,
+      viewname as name,
+      schemaname as schema,
+      'view' as type
+    from pg_views
+    where schemaname ilike 'public'
+    union all
+    select
+      'kenya_food_prices' as database,
+      matviewname as name,
+      schemaname as schema,
+      'materialized_view' as type
+    from pg_matviews
+    where schemaname ilike 'public'
+  
+[0m09:17:42.065565 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m09:17:42.179601 [debug] [ThreadPool]: SQL status: SELECT 7 in 0.114 seconds
+[0m09:17:42.181696 [debug] [ThreadPool]: On list_kenya_food_prices_public: ROLLBACK
+[0m09:17:42.182253 [debug] [ThreadPool]: On list_kenya_food_prices_public: Close
+[0m09:17:42.195777 [debug] [MainThread]: Using postgres connection "master"
+[0m09:17:42.196399 [debug] [MainThread]: On master: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "kenya_food_prices", "target_name": "dev", "connection_name": "master"} */
+select distinct
+        dependent_namespace.nspname as dependent_schema,
+        dependent_class.relname as dependent_name,
+        referenced_namespace.nspname as referenced_schema,
+        referenced_class.relname as referenced_name
+
+    -- Query for views: views are entries in pg_class with an entry in pg_rewrite, but we avoid
+    -- a seq scan on pg_rewrite by leveraging the fact there is an "internal" row in pg_depend for
+    -- the view...
+    from pg_class as dependent_class
+    join pg_namespace as dependent_namespace on dependent_namespace.oid = dependent_class.relnamespace
+    join pg_depend as dependent_depend on dependent_depend.refobjid = dependent_class.oid
+        and dependent_depend.classid = 'pg_rewrite'::regclass
+        and dependent_depend.refclassid = 'pg_class'::regclass
+        and dependent_depend.deptype = 'i'
+
+    -- ... and via pg_depend (that has a row per column, hence the need for "distinct" above, and
+    -- making sure to exclude the internal row to avoid a view appearing to depend on itself)...
+    join pg_depend as joining_depend on joining_depend.objid = dependent_depend.objid
+        and joining_depend.classid = 'pg_rewrite'::regclass
+        and joining_depend.refclassid = 'pg_class'::regclass
+        and joining_depend.refobjid != dependent_depend.refobjid
+
+    -- ... we can find the tables they query from in pg_class, but excluding system tables. Note we
+    -- don't need need to exclude _dependent_ system tables, because they only query from other
+    -- system tables, and so are automatically excluded by excluding _referenced_ system tables
+    join pg_class as referenced_class on referenced_class.oid = joining_depend.refobjid
+    join pg_namespace as referenced_namespace on referenced_namespace.oid = referenced_class.relnamespace
+        and referenced_namespace.nspname != 'information_schema'
+        and referenced_namespace.nspname not like 'pg\_%'
+
+    order by
+        dependent_schema, dependent_name, referenced_schema, referenced_name;
+[0m09:17:42.196982 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m09:17:42.273169 [debug] [MainThread]: SQL status: SELECT 0 in 0.076 seconds
+[0m09:17:42.276412 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '5248ad42-d15f-45cb-9a3a-e9de35e39c32', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001A7EC4721A0>]}
+[0m09:17:42.277500 [debug] [MainThread]: On master: ROLLBACK
+[0m09:17:42.278521 [debug] [MainThread]: On master: COMMIT
+[0m09:17:42.279381 [debug] [MainThread]: Using postgres connection "master"
+[0m09:17:42.280228 [debug] [MainThread]: On master: COMMIT
+[0m09:17:42.281323 [debug] [MainThread]: SQL status: COMMIT in 0.000 seconds
+[0m09:17:42.282136 [debug] [MainThread]: On master: Close
+[0m09:17:42.296138 [debug] [Thread-1 (]: Began running node model.kenya_food_prices.stg_food_prices
+[0m09:17:42.296970 [info ] [Thread-1 (]: 1 of 6 START sql view model public.stg_food_prices ............................. [RUN]
+[0m09:17:42.298099 [debug] [Thread-1 (]: Acquiring new postgres connection 'model.kenya_food_prices.stg_food_prices'
+[0m09:17:42.298634 [debug] [Thread-1 (]: Began compiling node model.kenya_food_prices.stg_food_prices
+[0m09:17:42.313295 [debug] [Thread-1 (]: Writing injected SQL for node "model.kenya_food_prices.stg_food_prices"
+[0m09:17:42.315990 [debug] [Thread-1 (]: Began executing node model.kenya_food_prices.stg_food_prices
+[0m09:17:42.463415 [debug] [Thread-1 (]: Writing runtime sql for node "model.kenya_food_prices.stg_food_prices"
+[0m09:17:42.466419 [debug] [Thread-1 (]: Using postgres connection "model.kenya_food_prices.stg_food_prices"
+[0m09:17:42.467338 [debug] [Thread-1 (]: On model.kenya_food_prices.stg_food_prices: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "kenya_food_prices", "target_name": "dev", "node_id": "model.kenya_food_prices.stg_food_prices"} */
+
+  create view "kenya_food_prices"."public"."stg_food_prices__dbt_tmp"
+    
+    
+  as (
+    -- stg_food_prices: clean view over raw_food_prices
+-- Casts types, renames columns, filters obvious bad data
+-- price_per_kg is derived here in dbt since it may not exist in raw table
+
+SELECT
+    date::DATE                              AS price_date,
+    EXTRACT(YEAR  FROM date)::INT           AS year,
+    EXTRACT(MONTH FROM date)::INT           AS month,
+    EXTRACT(QUARTER FROM date)::INT         AS quarter,
+    market_id::INT                          AS market_id,
+    market,
+    admin1                                  AS county,
+    admin2                                  AS sub_county,
+    latitude::NUMERIC(9,6)                  AS latitude,
+    longitude::NUMERIC(9,6)                 AS longitude,
+    commodity_id::INT                       AS commodity_id,
+    commodity,
+    category,
+    unit,
+    pricetype                               AS price_type,
+    priceflag                               AS price_flag,
+    currency,
+    price::NUMERIC(12,4)                    AS price_kes,
+    usdprice::NUMERIC(12,4)                 AS price_usd
+FROM "kenya_food_prices"."public"."raw_food_prices"
+WHERE price > 0
+  AND date IS NOT NULL
+  AND market_id IS NOT NULL
+  AND commodity_id IS NOT NULL
+  );
+[0m09:17:42.468032 [debug] [Thread-1 (]: Opening a new connection, currently in state init
+[0m09:17:42.630923 [debug] [Thread-1 (]: SQL status: CREATE VIEW in 0.163 seconds
+[0m09:17:42.642646 [debug] [Thread-1 (]: Using postgres connection "model.kenya_food_prices.stg_food_prices"
+[0m09:17:42.643388 [debug] [Thread-1 (]: On model.kenya_food_prices.stg_food_prices: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "kenya_food_prices", "target_name": "dev", "node_id": "model.kenya_food_prices.stg_food_prices"} */
+alter table "kenya_food_prices"."public"."stg_food_prices__dbt_tmp" rename to "stg_food_prices"
+[0m09:17:42.645492 [debug] [Thread-1 (]: SQL status: ALTER TABLE in 0.002 seconds
+[0m09:17:42.668810 [debug] [Thread-1 (]: On model.kenya_food_prices.stg_food_prices: COMMIT
+[0m09:17:42.669450 [debug] [Thread-1 (]: Using postgres connection "model.kenya_food_prices.stg_food_prices"
+[0m09:17:42.669961 [debug] [Thread-1 (]: On model.kenya_food_prices.stg_food_prices: COMMIT
+[0m09:17:42.671872 [debug] [Thread-1 (]: SQL status: COMMIT in 0.001 seconds
+[0m09:17:42.683756 [debug] [Thread-1 (]: Applying DROP to: "kenya_food_prices"."public"."stg_food_prices__dbt_backup"
+[0m09:17:42.698008 [debug] [Thread-1 (]: Using postgres connection "model.kenya_food_prices.stg_food_prices"
+[0m09:17:42.699275 [debug] [Thread-1 (]: On model.kenya_food_prices.stg_food_prices: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "kenya_food_prices", "target_name": "dev", "node_id": "model.kenya_food_prices.stg_food_prices"} */
+drop view if exists "kenya_food_prices"."public"."stg_food_prices__dbt_backup" cascade
+[0m09:17:42.702999 [debug] [Thread-1 (]: SQL status: DROP VIEW in 0.003 seconds
+[0m09:17:42.708531 [debug] [Thread-1 (]: On model.kenya_food_prices.stg_food_prices: Close
+[0m09:17:42.712243 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '5248ad42-d15f-45cb-9a3a-e9de35e39c32', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001A7EC2EAE10>]}
+[0m09:17:42.713636 [info ] [Thread-1 (]: 1 of 6 OK created sql view model public.stg_food_prices ........................ [[32mCREATE VIEW[0m in 0.41s]
+[0m09:17:42.715883 [debug] [Thread-1 (]: Finished running node model.kenya_food_prices.stg_food_prices
+[0m09:17:42.717414 [debug] [Thread-3 (]: Began running node model.kenya_food_prices.dim_date
+[0m09:17:42.718517 [debug] [Thread-1 (]: Began running node model.kenya_food_prices.fact_prices
+[0m09:17:42.719355 [debug] [Thread-4 (]: Began running node model.kenya_food_prices.dim_market
+[0m09:17:42.719978 [debug] [Thread-2 (]: Began running node model.kenya_food_prices.dim_commodity
+[0m09:17:42.720752 [info ] [Thread-3 (]: 3 of 6 START sql table model public.dim_date ................................... [RUN]
+[0m09:17:42.724953 [info ] [Thread-4 (]: 4 of 6 START sql table model public.dim_market ................................. [RUN]
+[0m09:17:42.729940 [debug] [Thread-3 (]: Acquiring new postgres connection 'model.kenya_food_prices.dim_date'
+[0m09:17:42.732491 [debug] [Thread-4 (]: Acquiring new postgres connection 'model.kenya_food_prices.dim_market'
+[0m09:17:42.721839 [info ] [Thread-1 (]: 5 of 6 START sql table model public.fact_prices ................................ [RUN]
+[0m09:17:42.734247 [debug] [Thread-3 (]: Began compiling node model.kenya_food_prices.dim_date
+[0m09:17:42.735736 [debug] [Thread-4 (]: Began compiling node model.kenya_food_prices.dim_market
+[0m09:17:42.727038 [info ] [Thread-2 (]: 2 of 6 START sql table model public.dim_commodity .............................. [RUN]
+[0m09:17:42.738087 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly model.kenya_food_prices.stg_food_prices, now model.kenya_food_prices.fact_prices)
+[0m09:17:42.749330 [debug] [Thread-3 (]: Writing injected SQL for node "model.kenya_food_prices.dim_date"
+[0m09:17:42.754163 [debug] [Thread-4 (]: Writing injected SQL for node "model.kenya_food_prices.dim_market"
+[0m09:17:42.757035 [debug] [Thread-2 (]: Acquiring new postgres connection 'model.kenya_food_prices.dim_commodity'
+[0m09:17:42.758631 [debug] [Thread-1 (]: Began compiling node model.kenya_food_prices.fact_prices
+[0m09:17:42.761210 [debug] [Thread-2 (]: Began compiling node model.kenya_food_prices.dim_commodity
+[0m09:17:42.777781 [debug] [Thread-2 (]: Writing injected SQL for node "model.kenya_food_prices.dim_commodity"
+[0m09:17:42.779485 [debug] [Thread-3 (]: Began executing node model.kenya_food_prices.dim_date
+[0m09:17:42.808167 [debug] [Thread-4 (]: Began executing node model.kenya_food_prices.dim_market
+[0m09:17:42.837555 [debug] [Thread-2 (]: Began executing node model.kenya_food_prices.dim_commodity
+[0m09:17:42.860693 [debug] [Thread-3 (]: Writing runtime sql for node "model.kenya_food_prices.dim_date"
+[0m09:17:42.856259 [debug] [Thread-4 (]: Writing runtime sql for node "model.kenya_food_prices.dim_market"
+[0m09:17:42.871809 [debug] [Thread-2 (]: Writing runtime sql for node "model.kenya_food_prices.dim_commodity"
+[0m09:17:42.879150 [debug] [Thread-2 (]: Using postgres connection "model.kenya_food_prices.dim_commodity"
+[0m09:17:42.880702 [debug] [Thread-4 (]: Using postgres connection "model.kenya_food_prices.dim_market"
+[0m09:17:42.882387 [debug] [Thread-2 (]: On model.kenya_food_prices.dim_commodity: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "kenya_food_prices", "target_name": "dev", "node_id": "model.kenya_food_prices.dim_commodity"} */
+
+  
+    
+
+  create  table "kenya_food_prices"."public"."dim_commodity__dbt_tmp"
+  
+  
+    as
+  
+  (
+    -- dim_commodity: one row per unique commodity
+SELECT DISTINCT
+    commodity_id,
+    commodity,
+    category,
+    unit
+FROM "kenya_food_prices"."public"."stg_food_prices"
+  );
+  
+[0m09:17:42.883870 [debug] [Thread-4 (]: On model.kenya_food_prices.dim_market: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "kenya_food_prices", "target_name": "dev", "node_id": "model.kenya_food_prices.dim_market"} */
+
+  
+    
+
+  create  table "kenya_food_prices"."public"."dim_market__dbt_tmp"
+  
+  
+    as
+  
+  (
+    -- dim_market: one row per unique market
+SELECT DISTINCT
+    market_id,
+    market,
+    county,
+    sub_county,
+    latitude,
+    longitude
+FROM "kenya_food_prices"."public"."stg_food_prices"
+  );
+  
+[0m09:17:42.885027 [debug] [Thread-3 (]: Using postgres connection "model.kenya_food_prices.dim_date"
+[0m09:17:42.885763 [debug] [Thread-2 (]: Opening a new connection, currently in state init
+[0m09:17:42.886490 [debug] [Thread-4 (]: Opening a new connection, currently in state init
+[0m09:17:42.887292 [debug] [Thread-3 (]: On model.kenya_food_prices.dim_date: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "kenya_food_prices", "target_name": "dev", "node_id": "model.kenya_food_prices.dim_date"} */
+
+  
+    
+
+  create  table "kenya_food_prices"."public"."dim_date__dbt_tmp"
+  
+  
+    as
+  
+  (
+    -- dim_date: one row per distinct month in the dataset
+SELECT DISTINCT
+    price_date      AS date_id,
+    year,
+    month,
+    quarter,
+    TO_CHAR(price_date, 'Month') AS month_name
+FROM "kenya_food_prices"."public"."stg_food_prices"
+  );
+  
+[0m09:17:42.891129 [debug] [Thread-3 (]: Opening a new connection, currently in state init
+[0m09:17:43.000497 [debug] [Thread-1 (]: Compilation Error in model fact_prices (models\marts\fact_prices.sql)
+  'dbt_utils' is undefined. This can happen when calling a macro that does not exist. Check for typos and/or install package dependencies with "dbt deps".
+[0m09:17:43.001880 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '5248ad42-d15f-45cb-9a3a-e9de35e39c32', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001A7EC2FF960>]}
+[0m09:17:43.003662 [error] [Thread-1 (]: 5 of 6 ERROR creating sql table model public.fact_prices ....................... [[31mERROR[0m in 0.26s]
+[0m09:17:43.013199 [debug] [Thread-1 (]: Finished running node model.kenya_food_prices.fact_prices
+[0m09:17:43.014965 [debug] [Thread-7 (]: Marking all children of 'model.kenya_food_prices.fact_prices' to be skipped because of status 'error'.  Reason: Compilation Error in model fact_prices (models\marts\fact_prices.sql)
+  'dbt_utils' is undefined. This can happen when calling a macro that does not exist. Check for typos and/or install package dependencies with "dbt deps"..
+[0m09:17:43.079453 [debug] [Thread-2 (]: SQL status: SELECT 63 in 0.193 seconds
+[0m09:17:43.100124 [debug] [Thread-2 (]: Using postgres connection "model.kenya_food_prices.dim_commodity"
+[0m09:17:43.101457 [debug] [Thread-2 (]: On model.kenya_food_prices.dim_commodity: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "kenya_food_prices", "target_name": "dev", "node_id": "model.kenya_food_prices.dim_commodity"} */
+alter table "kenya_food_prices"."public"."dim_commodity" rename to "dim_commodity__dbt_backup"
+[0m09:17:43.103898 [debug] [Thread-2 (]: SQL status: ALTER TABLE in 0.001 seconds
+[0m09:17:43.113668 [debug] [Thread-2 (]: Using postgres connection "model.kenya_food_prices.dim_commodity"
+[0m09:17:43.115063 [debug] [Thread-2 (]: On model.kenya_food_prices.dim_commodity: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "kenya_food_prices", "target_name": "dev", "node_id": "model.kenya_food_prices.dim_commodity"} */
+alter table "kenya_food_prices"."public"."dim_commodity__dbt_tmp" rename to "dim_commodity"
+[0m09:17:43.116179 [debug] [Thread-3 (]: SQL status: SELECT 239 in 0.226 seconds
+[0m09:17:43.123946 [debug] [Thread-2 (]: SQL status: ALTER TABLE in 0.007 seconds
+[0m09:17:43.124984 [debug] [Thread-3 (]: Using postgres connection "model.kenya_food_prices.dim_date"
+[0m09:17:43.131832 [debug] [Thread-2 (]: On model.kenya_food_prices.dim_commodity: COMMIT
+[0m09:17:43.132573 [debug] [Thread-3 (]: On model.kenya_food_prices.dim_date: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "kenya_food_prices", "target_name": "dev", "node_id": "model.kenya_food_prices.dim_date"} */
+alter table "kenya_food_prices"."public"."dim_date" rename to "dim_date__dbt_backup"
+[0m09:17:43.133357 [debug] [Thread-2 (]: Using postgres connection "model.kenya_food_prices.dim_commodity"
+[0m09:17:43.134380 [debug] [Thread-2 (]: On model.kenya_food_prices.dim_commodity: COMMIT
+[0m09:17:43.135293 [debug] [Thread-3 (]: SQL status: ALTER TABLE in 0.001 seconds
+[0m09:17:43.141563 [debug] [Thread-3 (]: Using postgres connection "model.kenya_food_prices.dim_date"
+[0m09:17:43.142273 [debug] [Thread-4 (]: SQL status: SELECT 224 in 0.256 seconds
+[0m09:17:43.143173 [debug] [Thread-2 (]: SQL status: COMMIT in 0.007 seconds
+[0m09:17:43.144177 [debug] [Thread-3 (]: On model.kenya_food_prices.dim_date: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "kenya_food_prices", "target_name": "dev", "node_id": "model.kenya_food_prices.dim_date"} */
+alter table "kenya_food_prices"."public"."dim_date__dbt_tmp" rename to "dim_date"
+[0m09:17:43.149001 [debug] [Thread-4 (]: Using postgres connection "model.kenya_food_prices.dim_market"
+[0m09:17:43.153386 [debug] [Thread-2 (]: Applying DROP to: "kenya_food_prices"."public"."dim_commodity__dbt_backup"
+[0m09:17:43.154339 [debug] [Thread-4 (]: On model.kenya_food_prices.dim_market: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "kenya_food_prices", "target_name": "dev", "node_id": "model.kenya_food_prices.dim_market"} */
+alter table "kenya_food_prices"."public"."dim_market" rename to "dim_market__dbt_backup"
+[0m09:17:43.155527 [debug] [Thread-3 (]: SQL status: ALTER TABLE in 0.001 seconds
+[0m09:17:43.162128 [debug] [Thread-2 (]: Using postgres connection "model.kenya_food_prices.dim_commodity"
+[0m09:17:43.165463 [debug] [Thread-3 (]: On model.kenya_food_prices.dim_date: COMMIT
+[0m09:17:43.166300 [debug] [Thread-4 (]: SQL status: ALTER TABLE in 0.003 seconds
+[0m09:17:43.166933 [debug] [Thread-2 (]: On model.kenya_food_prices.dim_commodity: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "kenya_food_prices", "target_name": "dev", "node_id": "model.kenya_food_prices.dim_commodity"} */
+drop table if exists "kenya_food_prices"."public"."dim_commodity__dbt_backup" cascade
+[0m09:17:43.167595 [debug] [Thread-3 (]: Using postgres connection "model.kenya_food_prices.dim_date"
+[0m09:17:43.172134 [debug] [Thread-4 (]: Using postgres connection "model.kenya_food_prices.dim_market"
+[0m09:17:43.173441 [debug] [Thread-3 (]: On model.kenya_food_prices.dim_date: COMMIT
+[0m09:17:43.174256 [debug] [Thread-4 (]: On model.kenya_food_prices.dim_market: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "kenya_food_prices", "target_name": "dev", "node_id": "model.kenya_food_prices.dim_market"} */
+alter table "kenya_food_prices"."public"."dim_market__dbt_tmp" rename to "dim_market"
+[0m09:17:43.175845 [debug] [Thread-4 (]: SQL status: ALTER TABLE in 0.001 seconds
+[0m09:17:43.176871 [debug] [Thread-3 (]: SQL status: COMMIT in 0.002 seconds
+[0m09:17:43.180919 [debug] [Thread-4 (]: On model.kenya_food_prices.dim_market: COMMIT
+[0m09:17:43.184745 [debug] [Thread-3 (]: Applying DROP to: "kenya_food_prices"."public"."dim_date__dbt_backup"
+[0m09:17:43.185447 [debug] [Thread-4 (]: Using postgres connection "model.kenya_food_prices.dim_market"
+[0m09:17:43.187228 [debug] [Thread-3 (]: Using postgres connection "model.kenya_food_prices.dim_date"
+[0m09:17:43.188148 [debug] [Thread-4 (]: On model.kenya_food_prices.dim_market: COMMIT
+[0m09:17:43.189526 [debug] [Thread-3 (]: On model.kenya_food_prices.dim_date: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "kenya_food_prices", "target_name": "dev", "node_id": "model.kenya_food_prices.dim_date"} */
+drop table if exists "kenya_food_prices"."public"."dim_date__dbt_backup" cascade
+[0m09:17:43.191797 [debug] [Thread-4 (]: SQL status: COMMIT in 0.001 seconds
+[0m09:17:43.196353 [debug] [Thread-4 (]: Applying DROP to: "kenya_food_prices"."public"."dim_market__dbt_backup"
+[0m09:17:43.197361 [debug] [Thread-2 (]: SQL status: DROP TABLE in 0.024 seconds
+[0m09:17:43.198676 [debug] [Thread-4 (]: Using postgres connection "model.kenya_food_prices.dim_market"
+[0m09:17:43.199244 [debug] [Thread-3 (]: SQL status: DROP TABLE in 0.009 seconds
+[0m09:17:43.201457 [debug] [Thread-2 (]: On model.kenya_food_prices.dim_commodity: Close
+[0m09:17:43.202045 [debug] [Thread-4 (]: On model.kenya_food_prices.dim_market: /* {"app": "dbt", "dbt_version": "1.11.7", "profile_name": "kenya_food_prices", "target_name": "dev", "node_id": "model.kenya_food_prices.dim_market"} */
+drop table if exists "kenya_food_prices"."public"."dim_market__dbt_backup" cascade
+[0m09:17:43.204055 [debug] [Thread-3 (]: On model.kenya_food_prices.dim_date: Close
+[0m09:17:43.205395 [debug] [Thread-2 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '5248ad42-d15f-45cb-9a3a-e9de35e39c32', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001A7EBBA6DF0>]}
+[0m09:17:43.207340 [debug] [Thread-3 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '5248ad42-d15f-45cb-9a3a-e9de35e39c32', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001A7EC985B50>]}
+[0m09:17:43.209433 [info ] [Thread-2 (]: 2 of 6 OK created sql table model public.dim_commodity ......................... [[32mSELECT 63[0m in 0.45s]
+[0m09:17:43.215113 [debug] [Thread-2 (]: Finished running node model.kenya_food_prices.dim_commodity
+[0m09:17:43.211687 [info ] [Thread-3 (]: 3 of 6 OK created sql table model public.dim_date .............................. [[32mSELECT 239[0m in 0.48s]
+[0m09:17:43.217065 [debug] [Thread-3 (]: Finished running node model.kenya_food_prices.dim_date
+[0m09:17:43.236205 [debug] [Thread-4 (]: SQL status: DROP TABLE in 0.031 seconds
+[0m09:17:43.239789 [debug] [Thread-4 (]: On model.kenya_food_prices.dim_market: Close
+[0m09:17:43.241441 [debug] [Thread-4 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '5248ad42-d15f-45cb-9a3a-e9de35e39c32', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001A7EC93A120>]}
+[0m09:17:43.243676 [info ] [Thread-4 (]: 4 of 6 OK created sql table model public.dim_market ............................ [[32mSELECT 224[0m in 0.51s]
+[0m09:17:43.245951 [debug] [Thread-4 (]: Finished running node model.kenya_food_prices.dim_market
+[0m09:17:43.247104 [debug] [Thread-1 (]: Began running node model.kenya_food_prices.agg_monthly_prices
+[0m09:17:43.247884 [info ] [Thread-1 (]: 6 of 6 SKIP relation public.agg_monthly_prices ................................. [[33mSKIP[0m]
+[0m09:17:43.249025 [debug] [Thread-1 (]: Finished running node model.kenya_food_prices.agg_monthly_prices
+[0m09:17:43.251226 [debug] [MainThread]: On master: COMMIT
+[0m09:17:43.251882 [debug] [MainThread]: Using postgres connection "master"
+[0m09:17:43.252352 [debug] [MainThread]: On master: COMMIT
+[0m09:17:43.252813 [debug] [MainThread]: Opening a new connection, currently in state closed
+[0m09:17:43.328629 [debug] [MainThread]: SQL status: COMMIT in 0.076 seconds
+[0m09:17:43.329362 [debug] [MainThread]: On master: Close
+[0m09:17:43.330163 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m09:17:43.330865 [debug] [MainThread]: Connection 'list_kenya_food_prices' was properly closed.
+[0m09:17:43.331693 [debug] [MainThread]: Connection 'list_kenya_food_prices_public' was properly closed.
+[0m09:17:43.332756 [debug] [MainThread]: Connection 'model.kenya_food_prices.fact_prices' was properly closed.
+[0m09:17:43.334104 [debug] [MainThread]: Connection 'model.kenya_food_prices.dim_date' was properly closed.
+[0m09:17:43.335386 [debug] [MainThread]: Connection 'model.kenya_food_prices.dim_market' was properly closed.
+[0m09:17:43.336699 [debug] [MainThread]: Connection 'model.kenya_food_prices.dim_commodity' was properly closed.
+[0m09:17:43.338562 [info ] [MainThread]: 
+[0m09:17:43.343417 [info ] [MainThread]: Finished running 5 table models, 1 view model in 0 hours 0 minutes and 2.67 seconds (2.67s).
+[0m09:17:43.346391 [debug] [MainThread]: Command end result
+[0m09:17:43.430590 [debug] [MainThread]: Wrote artifact WritableManifest to C:\Users\Fredrich Bernard\Desktop\Training\Data Engineering\Everything Data\DataCamp\Project\kenya-food-prices-pipeline\dbt\target\manifest.json
+[0m09:17:43.435961 [debug] [MainThread]: Wrote artifact SemanticManifest to C:\Users\Fredrich Bernard\Desktop\Training\Data Engineering\Everything Data\DataCamp\Project\kenya-food-prices-pipeline\dbt\target\semantic_manifest.json
+[0m09:17:43.451121 [debug] [MainThread]: Wrote artifact RunExecutionResult to C:\Users\Fredrich Bernard\Desktop\Training\Data Engineering\Everything Data\DataCamp\Project\kenya-food-prices-pipeline\dbt\target\run_results.json
+[0m09:17:43.451927 [info ] [MainThread]: 
+[0m09:17:43.453955 [info ] [MainThread]: [31mCompleted with 1 error, 0 partial successes, and 0 warnings:[0m
+[0m09:17:43.463151 [info ] [MainThread]: 
+[0m09:17:43.476632 [error] [MainThread]: [31mFailure in model fact_prices (models\marts\fact_prices.sql)[0m
+[0m09:17:43.479737 [error] [MainThread]:   Compilation Error in model fact_prices (models\marts\fact_prices.sql)
+  'dbt_utils' is undefined. This can happen when calling a macro that does not exist. Check for typos and/or install package dependencies with "dbt deps".
+[0m09:17:43.482484 [info ] [MainThread]: 
+[0m09:17:43.484115 [info ] [MainThread]: Done. PASS=4 WARN=0 ERROR=1 SKIP=1 NO-OP=0 TOTAL=6
+[0m09:17:43.488913 [debug] [MainThread]: Command `dbt run` failed at 09:17:43.487721 after 11.07 seconds
+[0m09:17:43.490723 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001A7EBC88230>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001A7E9ABB0B0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001A7EC9BBCB0>]}
+[0m09:17:43.492093 [debug] [MainThread]: Flushing usage events
+[0m09:17:46.690930 [debug] [MainThread]: An error was encountered while trying to flush usage events

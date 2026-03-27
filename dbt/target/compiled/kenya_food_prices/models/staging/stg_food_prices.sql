@@ -22,7 +22,7 @@ SELECT
     currency,
     price::NUMERIC(12,4)                    AS price_kes,
     usdprice::NUMERIC(12,4)                 AS price_usd
-FROM {{ source('public', 'raw_food_prices') }}
+FROM "kenya_food_prices"."public"."raw_food_prices"
 WHERE price > 0
   AND date IS NOT NULL
   AND market_id IS NOT NULL

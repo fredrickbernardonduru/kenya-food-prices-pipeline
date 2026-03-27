@@ -1,4 +1,9 @@
--- stg_food_prices: clean view over raw_food_prices
+
+  create view "kenya_food_prices"."public"."stg_food_prices__dbt_tmp"
+    
+    
+  as (
+    -- stg_food_prices: clean view over raw_food_prices
 -- Casts types, renames columns, filters obvious bad data
 -- price_per_kg is derived here in dbt since it may not exist in raw table
 
@@ -22,8 +27,9 @@ SELECT
     currency,
     price::NUMERIC(12,4)                    AS price_kes,
     usdprice::NUMERIC(12,4)                 AS price_usd
-FROM {{ source('public', 'raw_food_prices') }}
+FROM "kenya_food_prices"."public"."raw_food_prices"
 WHERE price > 0
   AND date IS NOT NULL
   AND market_id IS NOT NULL
   AND commodity_id IS NOT NULL
+  );

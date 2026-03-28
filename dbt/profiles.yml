@@ -3,7 +3,7 @@ kenya_food_prices:
   outputs:
     dev:
       type: postgres
-      host: localhost        # change to 'postgres' if running dbt inside Docker
+      host: host.docker.internal        # change to 'postgres' if running dbt inside Docker
       port: 5432
       user: postgres
       password: Huxtler41268690

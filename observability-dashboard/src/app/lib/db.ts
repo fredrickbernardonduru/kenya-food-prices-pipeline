@@ -1,6 +1,6 @@
+// FILE LOCATION: observability-dashboard/src/lib/db.ts
 import { Pool } from "pg";
 
-// Single shared pool — reused across all API calls
 const pool = new Pool({
   host:     process.env.DB_HOST     || "localhost",
   port:     parseInt(process.env.DB_PORT || "5432"),

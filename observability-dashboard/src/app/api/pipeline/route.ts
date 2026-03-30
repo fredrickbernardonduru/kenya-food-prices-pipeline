@@ -1,9 +1,6 @@
+// FILE LOCATION: observability-dashboard/src/app/api/pipeline/route.ts
 import { NextResponse } from "next/server";
 import pool from "@/lib/db";
-
-export async function GET() {
-  try {
-    // Query Airflow's dag_run and task_instance tables
     const runsResult = await pool.query(`
       SELECT
         dr.run_id,

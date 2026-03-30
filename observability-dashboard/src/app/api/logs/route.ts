@@ -1,9 +1,6 @@
+// FILE LOCATION: observability-dashboard/src/app/api/logs/route.ts
 import { NextResponse } from "next/server";
 import pool from "@/lib/db";
-
-export async function GET() {
-  try {
-    const result = await pool.query(`
       SELECT
         ti.task_id,
         ti.run_id,

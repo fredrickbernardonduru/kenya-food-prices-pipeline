@@ -1,0 +1,8 @@
+{
+  "venvPath": ".",
+  "ignore": [
+    "airflow/dags/**"
+  ],
+  "reportMissingImports": "none",
+  "reportMissingModuleSource": "none"
+}

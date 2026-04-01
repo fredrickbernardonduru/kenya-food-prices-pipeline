@@ -1,15 +1,19 @@
 {
     "sqltools.connections": [
         {
+            "pgOptions": {
+                "connectionTimeoutMillis": 0,
+                "idleTimeoutMillis": 10000,
+                "max": 10
+            },
             "ssh": "Disabled",
             "previewLimit": 50,
             "server": "localhost",
             "port": 5432,
             "driver": "PostgreSQL",
-            "name": "Kenya Market Data",
+            "name": "Kenya_Food_Prices_DB",
             "database": "kenya_food_prices",
-            "username": "postgres",
-            "password": "Huxtler41268690"
+            "username": "postgres"
         }
     ]
 }
